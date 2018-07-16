@@ -1,0 +1,34 @@
+apply plugin : 'cpp'
+
+model {
+
+  toolChains {
+    visualCpp(VisualCpp) {
+      // Gibt an wo das installDir von VisualStudio gefunden werden kann. 
+      // installDir "C:/Apps/Microsoft Visual Studio 10"
+      installDir "C:/Program Files (x86)/Microsoft Visual Studio/2017/WDExpress"
+    }
+
+    gcc32(Gcc) {
+      // Uncomment to use a GCC install that is not in the path
+      path "C:/msys64/mingw32/bin/"
+    }
+    gcc64(Gcc) {
+      // Uncomment to use a GCC install that is not in the path
+      path "C:/msys64/mingw64/bin/"
+    } 
+  }
+  platforms {
+    x86 {
+      architecture "x86"
+    }
+
+
+  }
+  components {
+    main(NativeExecutableSpec){
+      targetPlatform "x86"
+    }
+  }
+
+}
